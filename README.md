@@ -1,2 +1,2 @@
 # gestionnaires-de-contact
-Un simple gestionnaires de contact en javascript.
+Sans utilisation d'une bibliothèque javascript.Petite révision sur les boucles:).
