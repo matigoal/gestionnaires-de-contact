@@ -1,0 +1,61 @@
+/* 
+Activité : gestion des contacts
+*/
+
+var contacts = [];// tableau qui contient les  contacts
+init_contact();
+console.log("Bienvenue dans le gestionnaire des contacts");
+    do{// répéter la demandes tant que l'utilisateur n'a pas quitté le programme (0 pour quitter le programme) 
+        // affichage du menu
+        display_menu();
+
+        // demander le choix
+        var choix = prompt("Choissisez une option ? ");
+        choix = parseInt(choix);
+        switch(choix){ // aiguiller le choix
+            case 1:list_contact();break;// afficher la liste des contacts
+
+            case 2:
+                var lastname=prompt("Saisissez votre nom ?");//récupérez le nom
+                var firstname=prompt("Saisissez votre prénom ?");// récupérez le prénom
+               var newcontact=add_contact(firstname,lastname); // ajouter dans la liste des contacts
+               console.log("Le nouveau contact a été ajouté: "+ newcontact.lastname + " " +  newcontact.firstname);
+            case 0:break;// quitter le programme
+            default:console.log("Désolée je n'ai pas compris votre demande !") ;break;
+
+
+        }
+
+    }while(choix!=0); // condition du tant que 
+    
+
+
+function init_contact(){
+    contacts.push({"firstname":"Carole","lastname":"Levisse"});
+    contacts.push({"firstname":"Melodie","lastname":"Nelsonne"});
+}
+
+function add_contact(firstname,lastname){
+    contacts.push({"firstname":firstname,"lastname":lastname})
+    return {
+        "firstname":firstname,
+        "lastname":lastname,
+    }
+}
+
+function list_contact(){
+    var cpt=0;
+    console.log("Voici la liste de vos contacts: ");
+    while(cpt<contacts.length){
+        console.log("Nom: "+contacts[cpt].lastname+", Prénom: "+contacts[cpt].firstname);
+        cpt = cpt+1;
+    }
+
+}
+function display_menu(){
+   
+    console.log("1: Lister les contacts");
+    console.log("2: Ajouter les contacts");
+    console.log("0: Quitter");
+
+}   
